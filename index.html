@@ -8,28 +8,112 @@
     <title>Document</title>
 </head>
 <body>
-    <main id="main-doc">
+    <div id="container">
+        <nav id="navbar">
+            <header>HTML Documentation</header>
+            <ul>
+                <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+                <li><a class="nav-link" href="#Anatomy_of_an_HTML_element">Anatomy of an HTML element</a></li>
+                <li><a class="nav-link" href="#Attributes">Attributes</a></li>
+                <li><a class="nav-link" href="#Anatomy_of_an_html_document">Anatomy of an HTML document</a></li>
+                <li><a class="nav-link" href="#HTML_comments">HTML comments</a></li>
+                <li><a class="nav-link" href="#Summary">Summary</a></li>         
+            </ul>
+        </nav>
+        <main id="main-doc">
 
-        <section class="main-section">
-            <header>1</header>
-        </section>
-        
-        <section class="main-section">
-            <header>2</header>
-        </section>
-        
-        <section class="main-section">
-            <header>3</header>
-        </section>
-        
-        <section class="main-section">
-            <header>4</header>
-        </section>
-        
-        <section class="main-section">
-            <header>5</header>
-        </section>
+            <section class="main-section" id="Introduction">
+                <header>Introduction</header>
+                <article>
+                    <p>HTML (Hypertext Markup Language) is not a programming language; it is a markup language used to tell your browser how to structure the web pages you visit. It can be as complicated or as simple as the web developer wishes it to be. HTML consists of a series of elements, which you use to enclose, wrap, or mark up different parts of the content to make it appear or act a certain way. The enclosing tags can make a bit of content into a hyperlink to link to another page on the web, italicize words, and so on.  For example, take the following line of content:</p>
+                    <code>My cat is very grumpy.</code>
+                    <p>If we wanted the line to stand by itself, we could specify that it is a paragraph by enclosing it in a paragraph  (<code>&lt;p&gt;</code>) element:</p>
+                    <code>&lt;p&gt;My cat is very grumpy.&lt;/p&gt;</code>
+                </article>
+            </section>
+            
+            <section id="Anatomy_of_an_HTML_element" class="main-section">
+                <header>Anatomy of an HTML element</header>
+                <article>
+                    <p>Let's explore our paragraph element a bit further:</p>
+                    <img src="https://mdn.mozillademos.org/files/9347/grumpy-cat-small.png" atl="Image showing the elements in use" class="img-responsive">
+                    <p>The main parts of our element are:
+                        <ol>
+                            <li><strong>The opening tag:</strong>This consists of the name of the element (in this case, p), wrapped in opening and closing angle brackets. This states where the element begins or starts to take effect — in this case where the start of the paragraph is.</li>
+                            <li><strong>The Closing tag:</strong>This is the same as the opening tag, except that it includes a forward slash before the element name. This states where the element ends — in this case where the end of the paragraph is. Failing to include a closing tag is a common beginner error and can lead to strange results.</li>
+                            <li><strong>The content:</strong>This is the content of the element, which in this case is just text.</li>
+                            <li><strong>The element:</strong>The opening tag plus the closing tag plus the content equals the element.</li>
+                        </ol>
+                    </p>
+                </article>
+            </section>
+            
+            <section id="Attributes" class="main-section">
+                <header>Attributes</header>
+                <article></article>
+                    <p>Elements can also have attributes, which look like this:</p>
+                    <img src="https://mdn.mozillademos.org/files/9345/grumpy-cat-attribute-small.png" atl="Image showing the attribute |class|" class="img-responsive">
+                    <p>Attributes contain extra information about the element which you don't want to appear in the actual content. In this case, the <code>class</code> attribute allows you to give the element an identifying name that can be later used to target the element with style information and other things.</p>
+                    <p>An attribute should have:</p>
+                        <ol>
+                            <li>A space between it and the element name (or the previous attribute, if the element already has one or more attributes).</li>
+                            <li>The attribute name, followed by an equal sign.</li>
+                            <li>An attribute value, with opening and closing quote marks wrapped around it.</li>
+                        </ol>   
+                </article>
+            </section>
+            
+            <section id="Anatomy_of_an_html_document" class="main-section">
+                <header>Anatomy of an HTML document</header>
+                <article>
+                    <p>That wraps up the basics of individual HTML elements, but they aren't very useful on their own. Now we'll look at how individual elements are combined to form an entire HTML page:</p>
+                    <code class="eg-html">
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;title&gt;My test page&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&lt;p&gt;This is my page.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;<br>
+                    </code>
+                    <p>Here we have:</p>
+                        <ol>
+                            <li><code>&lt;!DOCTYPE html&gt;</code>: The doctype. In the mists of time, when HTML was young (about 1991/2), doctypes were meant to act as links to a set of rules that the HTML page had to follow to be considered good HTML, which could mean automatic error checking and other useful things.
+                            However, these days no one really cares about them, and they are really just a historical artifact that needs to be included for everything to work right. <code>&lt;!DOCTYPE html&gt;</code> is the shortest string of characters that counts as a valid doctype; that's all you really need to know.</li>
+                            <li><code>&lt;html&gt;&lt;/html&gt;</code>: The <code>&lt;html&gt;</code> element. This element wraps all the content on the entire page, and is sometimes known as the root element.</li>
+                            <li><code>&lt;head&gt;&lt;/head&gt;</code>: The <code>&lt;head&gt;</code> element. This element acts as a container for all the stuff you want to include on the HTML page that isn't the content you are showing to your page's viewers. This includes things like keywords and a page description that you want to appear in search results, CSS to style our content, character set declarations, and more. You'll learn more about this in the next article in the series.</li>
+                            <li><code>&lt;meta charset="UTF-8"&gt;</code>: This element sets the character set your document should use to UTF-8, which includes most characters from the vast majority of human written languages. Essentially it can now handle any textual content you might put on it. There is no reason not to set this, and it can help avoid some problems later.</li>
+                            <li><code>&lt;title&gt;&lt;/title&gt;</code>: The <code>&lt;title&gt;&lt;</code> element. This sets the title of your page, which is the title that appears in the browser tab the page is loaded in, and is used to describe the page when you bookmark/favorite it.</li>
+                            <li><code>&lt;body&gt;&lt;/body&gt;</code>: The <code>&lt;body&gt;</code> element. This contains all the content that you want to show to web users when they visit your page, whether that's text, images, videos, games, playable audio tracks, or whatever else.</li>
+                        </ol>
+                </article>
+            </section>
 
-    </main>
+            <section id="HTML_comments" class="main-section">
+                <header>HTML comments</header>
+                <article>
+                    <p>In HTML, as with most programming languages, there is a mechanism available to write comments in the code — comments are ignored by the browser and invisible to the user, and their purpose is to allow you to include comments in the code to say how your code works, what the different parts of the code do, etc. This can be very useful if you return to a code base that you've not worked on for six months, and can't remember what you did — or if you hand your code over to someone else to work on.</p>
+                    <p>To turn a section of content inside your HTML file into a comment, you need to wrap it in the special markers &lt;!-- and --&gt;, for example:</p>
+                    <code>&lt;p&gt;I'm not inside a comment&lt;/p&gt;</code> <br>
+                    <code>&lt;!-- &lt;p&gt;I am!&lt;/p&gt; --&gt;</code>
+                </article>
+            </section>
+
+            <section id="Summary" class="main-section">
+                <header>Summary</header>
+                <article>
+                    <p>You've reached the end of the article — we hope you enjoyed your tour of the very basics of HTML! At this point you should understand what the language looks like, how it works at a basic level, and be able to write a few elements and attributes. This is a perfect place to be right now, as in subsequent articles in the module we will go into some of the things you have already looked at in a lot more detail, and introduce some new features of the language. Stay tuned!</p>
+                </article>
+            </section>
+
+            <footer>
+                <p>This information was copied for <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank">Mozilla 'Getting Started with HTML</a> website and used to build this project for educational purposes only.</p>
+            </footer>
+
+        </main>
+    </div>
 </body>
 </html>
